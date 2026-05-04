@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+:root {
+  /* dark mode */
+  --background-dark: #131414;
+}
+
+* {
+  border: none;
+  text-decoration: none !important;
+  font-family: "Geist", sans-serif;
+}
+
+body {
+  background: var(--background-dark);
+  color: #c2c2c2;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px rgba(255, 238, 0, 0.5) !important;
+} 
