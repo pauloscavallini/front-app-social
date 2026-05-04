@@ -32,7 +32,8 @@ function ModalPost() {
             setError("");
 
             const data = await response.json();
-            console.log(data);
+
+            closePost();
             
         } catch(err) {
             console.log(err);

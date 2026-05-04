@@ -5,6 +5,8 @@ import { AuthProvider } from './context/AuthContext';
 import ModalLogin from './components/ModalLogin/ModalLogin';
 import Profile from './pages/Profile/Profile';
 import ModalPost from './components/ModalPost/ModalPost';
+import ModalCadastro from './components/ModalCadastro/ModalCadastro';
+import Post from './pages/PostPage/PostPage';
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <AuthProvider>
         <ModalLogin />
         <ModalPost />
+        <ModalCadastro />
         <Header />
         <main className="container">
           <Routes>
@@ -19,6 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
 
             <Route path="/profiles/:id" element={<Profile />} />
+            <Route path="/posts/:id" element={<Post />} />
           </Routes>
         </main>
       </AuthProvider>

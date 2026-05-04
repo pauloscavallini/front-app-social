@@ -15,13 +15,14 @@ function Profile() {
             try {
                 const profileRes = await fetch(`http://localhost:8080/profiles/${id}`, {
                     method: "GET",
-                    credentials: "include"
+                    // credentials: "include"
                 });
                 const profileData = await profileRes.json();
                 setProfile(profileData);
-                const postsRes = await fetch(`http://localhost:8080/posts/${profileData.id}`, {
+                console.log(profileData);
+                const postsRes = await fetch(`http://localhost:8080/posts/author/${profileData.id}`, {
                     method: "GET",
-                    credentials: "include"
+                    // credentials: "include"
                 });
 
                 if (!postsRes.ok) {
@@ -45,9 +46,11 @@ function Profile() {
     <div className="d-flex flex-column gap-4 mt-4">
         {profile ? (
             <>
-
-            <div className="d-flex gap-2">
+            <div className="d-flex gap-2 align-items-center">
                 <div className="fw-semibold fs-3">
+                {profile?.displayname || profile?.username}
+                </div>
+                <div className="fw-light fs-5">
                 {`@${profile?.username}`}
                 </div>
             </div>
