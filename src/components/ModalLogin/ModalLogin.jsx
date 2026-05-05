@@ -32,8 +32,9 @@ function ModalLogin() {
                          : {};
 
             if (response.ok) {
-                localStorage.setItem('logged', true);
-                setUser({ login: form.login });
+                const profile = data.profile
+                localStorage.setItem('user', JSON.stringify(profile));
+                setUser(profile);
                 closeLogin();
             } else {
                 setError(data.message || "Credenciais inválidas");

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Post from "../../components/Post/Post";
 
+
+
 function PostPage() {
     const { id } = useParams();
 
@@ -9,7 +11,7 @@ function PostPage() {
     const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
-        async function fetchDados(params) {
+        async function fetchDados() {
             try {
                 const response = await fetch(`http://localhost:8080/posts/${id}`, {
                     method: "GET"

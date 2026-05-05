@@ -1,0 +1,11 @@
+.post {
+    cursor: pointer;
+}
+
+.post:hover {
+    background: rgba(80, 80, 80, .1);
+}
+
+.profileLink:hover {
+    text-decoration: underline !important;
+}

@@ -6,7 +6,7 @@ export function AuthProvider({ children }) {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isPostOpen, setIsPostOpen] = useState(false);
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-    const [user, setUser] = useState(localStorage.getItem('logged'));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
     const openLogin = () => setIsLoginOpen(true);
     const closeLogin = () => setIsLoginOpen(false);

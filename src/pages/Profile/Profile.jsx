@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Post from "../../components/Post/Post";
+import { formatUsername } from "../../utils/profileUtil";
 
 function Profile() {
     const { id } = useParams();
@@ -15,14 +16,12 @@ function Profile() {
             try {
                 const profileRes = await fetch(`http://localhost:8080/profiles/${id}`, {
                     method: "GET",
-                    // credentials: "include"
                 });
                 const profileData = await profileRes.json();
                 setProfile(profileData);
                 console.log(profileData);
                 const postsRes = await fetch(`http://localhost:8080/posts/author/${profileData.id}`, {
                     method: "GET",
-                    // credentials: "include"
                 });
 
                 if (!postsRes.ok) {
@@ -35,7 +34,9 @@ function Profile() {
             } catch (error) {
                 console.error("Erro ao buscar dados:", error);
             } finally {
-                setLoadingPosts(false);
+                setTimeout(() => {
+                    setLoadingPosts(false);
+                }, 500)
             }
         }
 
@@ -47,6 +48,12 @@ function Profile() {
         {profile ? (
             <>
             <div className="d-flex gap-2 align-items-center">
+                <div
+                    style={{width: 40, height: 40}}
+                    className="text-white fs-5 d-flex justify-content-center align-items-center bg-secondary rounded-pill"
+                >
+                    {formatUsername(profile?.username)}
+                </div>
                 <div className="fw-semibold fs-3">
                 {profile?.displayname || profile?.username}
                 </div>
