@@ -2,7 +2,8 @@
 
 :root {
   /* dark mode */
-  --background-dark: #131414;
+  --background-dark: #201E1F;
+  --primary-color: #FF4000;
 }
 
 * {

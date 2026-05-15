@@ -6,6 +6,10 @@ function Home() {
     const { openPost, openLogin, user } = useAuth();
 
     const [posts, setPosts] = useState(null);
+
+    const onDeleteSuccess = (postId) => {
+        setPosts(prevPosts => prevPosts.filter(p => p.id !== postId));
+    };
     
     useEffect(() => {
         const fetchDados = async () => {
@@ -24,7 +28,8 @@ function Home() {
         <div className="d-flex justify-content-between align-items-center">
             <span className="fs-2 text-white">Meu feed</span>
             <button 
-                className="rounded-3 bg-warning text-black fw-semibold px-2 py-1"
+                style={{background: "var(--primary-color)"}}
+                className="rounded-3 text-white fw-semibold px-2 py-1"
                 onClick={user ? openPost : openLogin}
             >
                 Criar post
@@ -32,7 +37,11 @@ function Home() {
         </div>
         <section className="d-flex flex-column gap-2">
             {posts ? posts?.map(p => (
-            <Post key={p?.id} post={p} />
+                <Post
+                    key={p?.id} 
+                    post={p}
+                    onDelete={onDeleteSuccess}
+                />
             )) : "Não há posts"}
         </section>
         </>

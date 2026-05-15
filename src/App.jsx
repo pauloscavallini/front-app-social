@@ -16,7 +16,7 @@ function App() {
         <ModalPost />
         <ModalCadastro />
         <Header />
-        <main className="container">
+        <main className="container pt-5">
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />

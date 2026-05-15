@@ -71,7 +71,7 @@ function ModalLogin() {
                     e.preventDefault();
                     closeLogin();
                     openRegister();
-                }} className="text-warning bg-transparent">Cadastre-se</button></span>
+                }} className="bg-transparent" style={{color: "var(--primary-color)"}}>Cadastre-se</button></span>
             </form>
         </div>
     );

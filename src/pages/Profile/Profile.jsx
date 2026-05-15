@@ -19,7 +19,6 @@ function Profile() {
                 });
                 const profileData = await profileRes.json();
                 setProfile(profileData);
-                console.log(profileData);
                 const postsRes = await fetch(`http://localhost:8080/posts/author/${profileData.id}`, {
                     method: "GET",
                 });
@@ -55,7 +54,7 @@ function Profile() {
                     {formatUsername(profile?.username)}
                 </div>
                 <div className="fw-semibold fs-3">
-                {profile?.displayname || profile?.username}
+                {profile?.displayName || profile?.username}
                 </div>
                 <div className="fw-light fs-5">
                 {`@${profile?.username}`}

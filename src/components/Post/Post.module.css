@@ -1,5 +1,6 @@
 .post {
     cursor: pointer;
+    position: relative;
 }
 
 .post:hover {
@@ -8,4 +9,29 @@
 
 .profileLink:hover {
     text-decoration: underline !important;
+}
+
+.selection {
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.selection button {
+    background: transparent;
+    color: white;
+}
+
+.selection button:hover {
+    background: rgba(78, 78, 78, 0.16);
+}
+
+.like {
+    background: transparent !important;
+    transition: all .2s;
+}
+
+.like:hover {
+    background: rgba(78, 78, 78, 0.16) !important;
 }
